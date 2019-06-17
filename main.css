@@ -38,7 +38,7 @@
 }
 
 .focused {
-    background-color: rgb(140, 199, 37);
+    background-color: rgb(140, 199, 37) !important;
 
 }
 .complete {

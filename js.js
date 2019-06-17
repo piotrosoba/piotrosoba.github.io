@@ -20,7 +20,7 @@ var squareToChange;
 
         if (i <= 9) chooseBox.append("<div>"+i+"</div>");
     }
-    chooseBox.append("<div>X</div>")
+    chooseBox.append("<div>x</div>")
 
 }) ();
 

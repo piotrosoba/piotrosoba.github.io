@@ -122,7 +122,7 @@ $('#sudoku div').click(function(e){
 //  change square value with chooseBox
 $('#chooseBox div').click(function(e){
     $('#sudoku div').removeClass("focused");
-    if ($(this).text() == "X") squareToChange.text("");
+    if ($(this).text() == "x") squareToChange.text("");
     else squareToChange.text($(this).text());
     chooseBox.hide();
     sudokuChecker();

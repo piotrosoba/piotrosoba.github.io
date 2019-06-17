@@ -1,0 +1,108 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sudoku {
+    width: 450px;
+    height: 450px;
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+#sudoku div{
+    display: flex;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row4, .row7{
+    border-top: 2px solid black;
+}
+
+.column4, .column7{
+    border-left: 2px solid black;
+}
+
+.focused {
+    background-color: rgb(140, 199, 37);
+
+}
+.complete {
+    background-color: #ffff66 !important;
+}
+
+.wrong {
+    background-color: rgb(191, 19, 19) !important;
+
+}
+
+.starter {
+    background-color: #E1E0E0;
+    cursor: default !important;
+    font-weight: bold;
+}
+
+#chooseBox {
+    display: flex;
+    position: absolute;
+    background-color: #ffffe6;
+    flex-wrap: wrap;
+    top: 0px;
+    left: 0px;
+    width: 125px;
+    height: 165px;
+    border: 1px solid #8c8c8c;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#chooseBox div{
+    display: flex;
+    cursor: pointer;
+    background-image: linear-gradient(to bottom right, #80aaff, #b3ccff);
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    border-radius: 15px;
+    color: white;
+    box-shadow: 5px 5px 5px grey;
+}
+
+#chooseBox div:hover {
+    box-shadow: 2px 2px 5px grey;
+}
+
+#sudokuButtons{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 450px;
+    height: 120px;
+    margin-top: 20px;
+}
+
+#sudokuButtons div{
+    cursor: pointer;
+    margin: 0px 20px 0px 20px;
+    font-size: 25px;
+   /* background-image: linear-gradient(to bottom right, #80aaff, #b3ccff); */
+    background-color: #a3a375;
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#sudokuButtons div:hover {
+    box-shadow: 2px 2px 5px grey;
+}
+

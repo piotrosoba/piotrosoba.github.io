@@ -32,9 +32,15 @@ var s2 = "0402010600000000009050003070000000005070801040100000900010006000007050
 var s3 = "090006040005300008000070200001050003060009070200084100003010000800002500050400080";
 
 var sudokuExamples = [s0, s1, s2, s3];
+
 var sudokuNumber = 0;
+if (localStorage.getItem("numSud")) sudokuNumber = parseInt(localStorage.getItem("numSud"));
+
 
 var sudokuFiled = ["", "", "", ""];
+if (localStorage.getItem("remSud")) sudokuFiled = JSON.parse(localStorage.getItem("remSud"));
+
+$('body').append(localStorage.getItem("numSud"));
 
 // fill sudoku
 
@@ -51,6 +57,8 @@ function sudokuInit (sampl){
     }
 };
 sudokuInit (sudokuExamples[sudokuNumber]);
+fillRemembered (sudokuFiled[sudokuNumber]);
+sudokuChecker();
 
 // remember filled squares
 function rememberSudoku() {
@@ -61,6 +69,7 @@ function rememberSudoku() {
         if (checkingSquare.text() == "") sudokuFiled[sudokuNumber] += 0;
         else sudokuFiled[sudokuNumber] += checkingSquare.text();
     }
+    localStorage.setItem('remSud', JSON.stringify(sudokuFiled));
 }
 
 // fill remembered squares
@@ -78,6 +87,7 @@ $('#prevousSudoku').click(function(e){
     if (sudokuNumber != 0) sudokuNumber -= 1;
     sudokuInit (sudokuExamples[sudokuNumber]);
     fillRemembered(sudokuFiled[sudokuNumber]);
+    localStorage.setItem('numSud', sudokuNumber);
     sudokuChecker();
 
 });
@@ -88,6 +98,7 @@ $('#nextSudoku').click(function(e){
     if (sudokuNumber != sudokuExamples.length-1) sudokuNumber += 1;
     sudokuInit (sudokuExamples[sudokuNumber]);
     fillRemembered(sudokuFiled[sudokuNumber]);
+    localStorage.setItem('numSud', sudokuNumber);
     sudokuChecker();
 
 });
@@ -96,6 +107,7 @@ $('#resetSudoku').click(function(e){
     sudokuFiled[sudokuNumber] = "";
     chooseBox.hide();
     sudokuInit (sudokuExamples[sudokuNumber]);
+    rememberSudoku();
 
 });
 
@@ -126,6 +138,7 @@ $('#chooseBox div').click(function(e){
     else squareToChange.text($(this).text());
     chooseBox.hide();
     sudokuChecker();
+    rememberSudoku();
 });
 
 

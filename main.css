@@ -1,0 +1,139 @@
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+    sans-serif;
+  color: #4d9900;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffcc;
+}
+
+.container {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  border: 2px solid #ddff99;
+  background-image: url('./background.jpg');
+  background-size: cover;
+  margin-top: 5px;
+}
+
+.ball {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.ball-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./ball.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.line {
+  position: absolute;
+  height: 5px;
+  background-color: #4d9900;
+  transform-origin: top left;
+  border-radius: 75%;
+  cursor: default;
+  top: 50%;
+  left: 50%;
+}
+
+.target-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.target {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.target-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./target-background.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  transition: 350ms;
+}
+
+.target-eyes {
+  position: absolute;
+  background-image: url('./target-eyes.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 6%;
+  left: 17%;
+  width: 60%;
+  height: 71%;
+  transition: 800ms;
+  transition-timing-function: linear;
+}
+
+.level-container {
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+}
+
+.shots-container {
+  font-weight: bold;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  font-size: 18px;
+}
+
+.splash-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: gray;
+  opacity: 0.8;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.splash-screen__description {
+  font-size: 35px;
+  padding: 0px 60px;
+  text-align: center;
+  color: #1a3300;
+}
+
+.splash-screen__start-button {
+  border: 1px solid black;
+  padding: 10px 20px;
+  font-size: 26px;
+  cursor: pointer;
+  background-color: white;
+  color: #003300;
+  opacity: 1;
+}

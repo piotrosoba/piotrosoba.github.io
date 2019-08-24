@@ -12,7 +12,7 @@ $(() => {
     i++
     if (i >= headerText.length) {
       clearInterval(headerInterval)
-      $('<span>' + titleText + '</span>').appendTo(headerP).hide().delay(300).show('bounce')
+      $('<span>' + titleText + '</span>').appendTo(headerP).hide().delay(300).show('fade', 1500)
     }
-  }, 300)
+  }, 200)
 })

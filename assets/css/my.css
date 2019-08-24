@@ -15,16 +15,30 @@
   display: flex;
   justify-content: center;
   width: 9%;
+  color: #e1e1d0
 }
 
 #header p {
   height: 30px;
   display: flex;
   justify-content: center;
+  color: #e1e1d0
 }
 
 @media only screen and (max-width: 480px) {
   #header h1>div {
     width:60%;
   }
+}
+
+.skills-icon:hover {
+  width: 150px;
+  height: 150px;
+}
+
+.skills {
+  height: 150px;
+  display: flex;
+  justify-content: space-evenly;
+
 }

@@ -1,0 +1,30 @@
+#header h1 {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+}
+
+#header h1>div {
+  width:33%;
+  display: flex;
+  position: relative;
+
+}
+
+#header h1 div div{
+  display: flex;
+  justify-content: center;
+  width: 9%;
+}
+
+#header p {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+  #header h1>div {
+    width:60%;
+  }
+}

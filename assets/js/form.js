@@ -46,7 +46,7 @@ $(() => {
 
     if (isError) {
       evt.preventDefault()
-      const warning = $('<div class="form-warning"><b style="color: red">Please fill correct all inputs.</b></div>')
+      const warning = $('<div class="form-warning" style="height:0"><b style="color: red">Please fill correct all inputs.</b></div>')
       form.append(warning)
     }
 

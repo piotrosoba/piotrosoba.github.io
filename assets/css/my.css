@@ -67,3 +67,12 @@
 .skill-description p{
 margin: 0 !important;
 }
+
+.input-error {
+  border: 1px solid red !important
+}
+
+.input-error::placeholder{
+color: red;
+opacity: 1
+}

@@ -28,7 +28,7 @@ $(() => {
           error = true
           input.classList.add('input-error')
 
-          const emailWarning = $('<div class="form-email-warning" style="margin:0; height:0"><b style="color: red">Wrong email!</b></div>')
+          const emailWarning = $('<div class="form-email-warning" style="margin:-5px 0 0 0; height:0"><b style="color: red">Wrong email!</b></div>')
           $(input).parent().append(emailWarning)
         }
 

@@ -1667,6 +1667,10 @@ input, select, textarea {
 						padding: 230px 0 0 20px;
 					}
 
+					.send-form__textarea, .send-form__submit-container{
+						padding: 30px 0 0 20px !important
+					}
+
 					.row.gtr-uniform {
 						margin-top: -20px;
 					}
@@ -1909,7 +1913,7 @@ input, select, textarea {
 				}
 
 					.row > * {
-						padding: 20px 0 0 20px;
+						padding: 30px 0 0 20px;
 					}
 
 					.row.gtr-uniform {

@@ -19,7 +19,8 @@ const scoreDiv = document.querySelector('.score')
 
 let ball
 let power = 20
-let level = 0
+let level = localStorage.getItem('level') || 0
+scoreDiv.innerText = level
 let allowFly = false
 let allowDraw = false
 let gameBlock = false
@@ -185,7 +186,7 @@ const nextLevel = (holeContainer, holeWidth, holeHeight) => {
   createjs.Tween.get(ball).to({ x: (holeContainer.x + holeWidth / 2 - BALL_RADIUS), y: GROUND_Y + holeHeight * 0.75 - 2 * BALL_RADIUS }, 100, createjs.Ease.circOut)
   setTimeout(() => {
     power = 20
-    level++
+    localStorage.setItem('level', ++level)
     scoreDiv.innerText = level
     createjs.Tween.get(holeContainer).to({ x: (Math.random() * 5 + 4) / 10 * CANVAS_WIDTH }, 500, createjs.Ease.circOut)
     ball.x = BALL_START_POSITION_X
@@ -194,6 +195,7 @@ const nextLevel = (holeContainer, holeWidth, holeHeight) => {
 }
 
 const loseGame = () => {
+  localStorage.setItem('level', 0)
   gameBlock = true
   gameOverScore.innerText = level
   loseWindow.style.display = 'flex'
@@ -221,3 +223,4 @@ function isMobileDevice() {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
 }
 
+window.addEventListener('resize', () => location.reload())

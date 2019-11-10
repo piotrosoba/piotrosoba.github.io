@@ -1,3 +1,4 @@
+const isMobileDevice = (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
 //CONFIG
 const BALL_START_POSITION_X = 50
 const BALL_RADIUS = 20
@@ -159,14 +160,14 @@ const handleComplete = (stage, loader) => {
     stage.update(evt)
   })
 
-  stage.canvas.addEventListener(isMobileDevice() ? 'touchstart' : 'mousedown', (evt) => {
-    if ((evt.buttons === 1 || isMobileDevice()) && !allowFly && !gameBlock && ball.x === BALL_START_POSITION_X) {
+  stage.canvas.addEventListener(isMobileDevice ? 'touchstart' : 'mousedown', (evt) => {
+    if ((isMobileDevice || evt.buttons === 1) && !allowFly && !gameBlock && ball.x === BALL_START_POSITION_X) {
       allowDraw = true
       power = 20
     }
   })
 
-  stage.canvas.addEventListener(isMobileDevice() ? 'touchend' : 'mouseup', () => {
+  stage.canvas.addEventListener(isMobileDevice ? 'touchend' : 'mouseup', () => {
     if (!gameBlock) {
       if (allowDraw) {
         allowDraw = false
@@ -219,8 +220,9 @@ const makeDot = (dotImg) => {
   return dot
 }
 
-function isMobileDevice() {
-  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
-}
 
-window.addEventListener('resize', () => location.reload())
+window.addEventListener('resize', () => {
+  if (window.innerWidth !== CANVAS_WIDTH || window.innerHeight !== CANVAS_HEIGHT) {
+    location.reload()
+  }
+})

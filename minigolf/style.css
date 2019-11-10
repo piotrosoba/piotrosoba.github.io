@@ -1,0 +1,69 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#canvas{
+  width: 100%;
+  height:100%;
+  background-image: url('./img/background.png');
+  background-size: auto 100%;
+}
+
+.game-over{
+  display: none;
+  position:fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(158, 155, 147, 0.7);
+}
+
+.game-over__window{
+  border: 1px solid black;
+  width: 300px;
+  height: 200px;
+  background-color: silver;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-over__window__button{
+cursor: pointer;
+width: 160px;
+font-weight: bold;
+}
+
+.game-over__window__button:hover{
+  color: rgba(255,204,0)
+}
+
+p{
+  text-align: center;
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.score{
+  position:absolute;
+  top: 0;
+  right: 10px;
+  font-size: 86px;
+  font-weight: bold;
+  color: rgba(255,204,0)
+}

@@ -159,7 +159,6 @@ const handleComplete = (stage, loader) => {
   })
 
   stage.canvas.addEventListener(isMobileDevice() ? 'touchstart' : 'mousedown', (evt) => {
-    console.log(evt)
     if ((evt.buttons === 1 || isMobileDevice()) && !allowFly && !gameBlock && ball.x === BALL_START_POSITION_X) {
       allowDraw = true
       power = 20

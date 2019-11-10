@@ -72,14 +72,14 @@ const handleComplete = (stage, loader) => {
   const holeContainer = new createjs.Container()
   holeContainer.scaleX = HOLE_SCALE
   holeContainer.scaleY = HOLE_SCALE
-  holeContainer.x = (Math.random() * 5 + 5) / 10 * CANVAS_WIDTH - holeImg.width
+  holeContainer.x = (Math.random() * 5 + 4) / 10 * CANVAS_WIDTH
   holeContainer.y = GROUND_Y
 
   const hole = new createjs.Shape()
   hole.graphics.beginBitmapFill(holeImg, 'no-repeat').drawRect(0, 0, holeImg.width, holeImg.height)
 
   const stick = new createjs.Shape()
-  stick.graphics.beginBitmapFill(stickImg).drawRect(0, 0, stickImg.width, stickImg.height)
+  stick.graphics.beginBitmapFill(stickImg, 'no-repeat').drawRect(0, 0, stickImg.width, stickImg.height)
   stick.y = 0 - stickImg.height
   stick.x = holeImg.width / 2 - stickImg.width / 2
 
@@ -158,14 +158,15 @@ const handleComplete = (stage, loader) => {
     stage.update(evt)
   })
 
-  stage.canvas.addEventListener('mousedown', (evt) => {
-    if (evt.buttons === 1 && !allowFly && !gameBlock && ball.x === BALL_START_POSITION_X) {
+  stage.canvas.addEventListener(isMobileDevice() ? 'touchstart' : 'mousedown', (evt) => {
+    console.log(evt)
+    if ((evt.buttons === 1 || isMobileDevice()) && !allowFly && !gameBlock && ball.x === BALL_START_POSITION_X) {
       allowDraw = true
       power = 20
     }
   })
 
-  stage.canvas.addEventListener('mouseup', () => {
+  stage.canvas.addEventListener(isMobileDevice() ? 'touchend' : 'mouseup', () => {
     if (!gameBlock) {
       if (allowDraw) {
         allowDraw = false
@@ -216,3 +217,8 @@ const makeDot = (dotImg) => {
   dot.graphics.beginBitmapFill(dotImg).drawCircle(dotImg.width / 2, dotImg.width / 2, dotImg.width / 2)
   return dot
 }
+
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)
+}
+

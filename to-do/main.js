@@ -1,4 +1,4 @@
-const ToDoList = (function() {
+const ToDoList = (function () {
   class Task {
     constructor(taskInfo) {
       this.taskInfo = taskInfo
@@ -181,7 +181,7 @@ const ToDoList = (function() {
 
       const filteredTasks = tasksToShow.filter(task => {
         let checker = true
-        this.filterText.split(' ').forEach(function(word) {
+        this.filterText.split(' ').forEach(function (word) {
           if (!task.text.toLowerCase().includes(word)) {
             checker = false
             return
